@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f0">
+  <meta name="description" content="Đặt phòng nghỉ dưỡng tại Mây Retreat — nơi những ngày chậm rãi bắt đầu.">
+  <title>Mây Retreat — Chạm vào những ngày chậm rãi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Mây Retreat trang chủ">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M8 23.5C10.8 17.6 16.9 15 22.7 17.1c3.2 1.2 5.4 3.6 6.7 6.4M11 28c2.2-3.2 5.6-4.8 9-4.2 2.6.5 4.6 2.2 5.8 4.2M15 13.7c2-3.1 5.4-4.7 8.8-4.4" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/><circle cx="29.5" cy="12" r="2.5" fill="currentColor"/></svg></span>
+      <span class="brand-copy"><strong>MÂY</strong><small>RETREAT · HỘI AN</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <a class="nav-link active" href="/rooms">Danh sách phòng</a>
+      <a class="nav-link" href="#experience">Trải nghiệm</a>
+      <a class="nav-link" href="#about">Về Mây</a>
+    </nav>
+    <button class="admin-trigger" id="admin-toggle" type="button"><span class="admin-trigger-dot"></span><span>Đăng nhập</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></button>
+    <button class="menu-trigger" id="menu-toggle" aria-label="Mở menu" type="button"><span></span><span></span></button>
+  </header>
+
+  <main id="guest-view">
+    <section class="hero" id="home">
+      <div class="hero-image" aria-hidden="true"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow light"><span></span> KHU NGHỈ DƯỠNG BÊN BIỂN · HỘI AN</p>
+        <h1>Chạm vào<br>những ngày <em>chậm rãi.</em></h1>
+        <p class="hero-intro">Giữa miền xanh của biển và những khu vườn yên ả, Mây dành cho bạn một khoảng nghỉ thật riêng.</p>
+        <a class="text-link light-link" href="#rooms">Khám phá không gian <span>↘</span></a>
+      </div>
+      <div class="hero-caption"><span class="caption-line"></span> 15°52' N &nbsp; 108°20' E <span class="caption-divider">/</span> AN BÀNG, VIỆT NAM</div>
+      <div class="hero-index"><span>01</span><i></i><span>03</span></div>
+    </section>
+
+    <section class="search-wrap" aria-label="Tìm phòng trống">
+      <form class="search-panel" id="search-form">
+        <div class="search-heading"><span class="search-label">BẮT ĐẦU KỲ NGHỈ</span><span class="search-note">Chọn ngày bạn muốn đến</span></div>
+        <label class="search-field search-location"><span class="field-icon">⌖</span><span class="field-copy"><span>TÌM PHÒNG</span><input id="search-query" type="search" placeholder="Tên phòng, hướng biển…" autocomplete="off" aria-label="Tìm theo tên phòng hoặc tiện ích"></span></label>
+        <label class="search-field date-field"><span class="field-icon">↘</span><span class="field-copy"><span>NHẬN PHÒNG</span><input id="search-checkin" type="date" required aria-label="Ngày nhận phòng"></span></label>
+        <label class="search-field date-field"><span class="field-icon">↗</span><span class="field-copy"><span>TRẢ PHÒNG</span><input id="search-checkout" type="date" required aria-label="Ngày trả phòng"></span></label>
+        <label class="search-field guest-field"><span class="field-icon">♙</span><span class="field-copy"><span>SỐ KHÁCH</span><select id="search-guests" aria-label="Số khách"><option value="1">1 khách</option><option value="2" selected>2 khách</option><option value="3">3 khách</option><option value="4">4 khách</option></select></span></label>
+        <button class="search-submit" type="submit" aria-label="Tìm phòng"><span>Tìm phòng</span><span>↗</span></button>
+      </form>
+    </section>
+
+    <section class="rooms-section section-shell" id="rooms">
+      <div class="section-topline"><span class="eyebrow"><span></span> NƠI BẠN THUỘC VỀ</span><span class="section-number">01 — 03</span></div>
+      <div class="section-heading-row"><div><h2>Mỗi căn phòng,<br><em>một câu chuyện.</em></h2></div><p class="section-description">Thiết kế từ cảm hứng bản địa, ôm trọn những điều tự nhiên nhất. Tìm một không gian dành riêng cho bạn.</p></div>
+      <div class="room-toolbar"><div class="room-results" id="room-results">Đang tìm những căn phòng dành cho bạn…</div><button id="clear-search" class="clear-search" type="button" hidden>Xóa bộ lọc <span>×</span></button></div>
+      <div class="room-grid" id="room-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="experience-section" id="experience">
+      <div class="experience-photo" role="img" aria-label="Hồ bơi trong xanh giữa khu vườn nhiệt đới"></div>
+      <div class="experience-copy">
+        <p class="eyebrow light"><span></span> KHÔNG GIAN CỦA MÂY</p>
+        <h2>Ở lại lâu hơn<br><em>một chút.</em></h2>
+        <p>Một buổi sáng chậm bên hồ, chút nắng cuối ngày trên bãi biển, và hương vị địa phương được nâng niu trong từng bữa ăn.</p>
+        <a class="text-link light-link" href="#about">Một ngày ở Mây <span>↗</span></a>
+        <div class="experience-details"><span>01 <small>HỒ BƠI VƯỜN</small></span><span>02 <small>BẾP BẢN ĐỊA</small></span><span>03 <small>BIỂN AN BÀNG</small></span></div>
+      </div>
+      <div class="experience-stamp">SLOW<br>DOWN<br><span>●</span></div>
+    </section>
+
+    <section class="stay-guide section-shell" id="stay-guide">
+      <div class="section-topline"><span class="eyebrow"><span></span> MỘT NGÀY Ở MÂY</span><span class="section-number">NHỮNG ĐIỀU NHỎ, VỪA ĐỦ</span></div>
+      <div class="guide-heading-row"><h2>Những điều nhỏ<br><em>làm nên kỳ nghỉ.</em></h2><p>Không cần một lịch trình dày đặc. Chỉ cần vài khoảng thời gian đẹp, theo nhịp riêng của bạn.</p></div>
+      <div class="guide-grid">
+        <article class="guide-card"><span class="guide-index">01</span><span class="guide-icon">☼</span><p class="eyebrow"><span></span> BUỔI SÁNG</p><h3>Bắt đầu bằng<br>một bữa ngon.</h3><p>Thưởng thức hương vị địa phương trong căn bếp của Mây, rồi để ngày mới tự tìm nhịp điệu.</p></article>
+        <article class="guide-card"><span class="guide-index">02</span><span class="guide-icon">≈</span><p class="eyebrow"><span></span> BUỔI TRƯA</p><h3>Chậm lại<br>bên hồ xanh.</h3><p>Một khoảng nghỉ mát lành giữa khu vườn, để nắng và gió biển làm phần còn lại.</p></article>
+        <article class="guide-card"><span class="guide-index">03</span><span class="guide-icon">⌁</span><p class="eyebrow"><span></span> BUỔI CHIỀU</p><h3>Ghé biển<br>An Bàng.</h3><p>Đi dạo bên bờ biển, ngắm ánh chiều dịu xuống rồi trở về căn phòng yêu thích.</p></article>
+      </div>
+    </section>
+
+    <section class="visit-guide" id="visit">
+      <div class="visit-guide-inner"><div><p class="eyebrow light"><span></span> LÊN KẾ HOẠCH CHO CHUYẾN ĐI</p><h2>Mây ở<br><em>An Bàng.</em></h2><p class="visit-description">Khu nghỉ dưỡng nằm tại làng biển An Bàng, Hội An — nơi bạn có thể kết hợp những giờ phút bên biển với một chuyến dạo phố cổ.</p></div><div class="visit-details"><div><span>VỊ TRÍ</span><strong>An Bàng · Hội An<br>Việt Nam</strong></div><div><span>LIÊN HỆ</span><a href="mailto:hello@mayretreat.vn">hello@mayretreat.vn ↗</a></div><div><span>ĐẶT PHÒNG</span><a href="/rooms">Xem các hạng phòng ↗</a></div></div></div>
+    </section>
+
+    <section class="about-section section-shell" id="about">
+      <span class="eyebrow"><span></span> MỘT CHÚT VỀ MÂY</span>
+      <div class="about-layout"><h2>Những ngày<br>đẹp nhất thường<br><em>không vội vàng.</em></h2><div class="about-note"><span class="about-flower">✳</span><p>Mây nằm giữa làng biển An Bàng và phố cổ Hội An. Một nơi đủ gần để khám phá, đủ yên để bạn muốn ở thêm một ngày.</p><a href="#home" class="text-link">Trở về đầu trang <span>↑</span></a></div></div>
+      <div class="about-footer"><span>AN BÀNG · HỘI AN · VIỆT NAM</span><span>15°52' N &nbsp; 108°20' E</span><span>© MÂY RETREAT 2025</span></div>
+    </section>
+  </main>
+
+  <main id="admin-view" class="admin-view" hidden>
+    <section class="admin-heading"><div><p class="eyebrow"><span></span> MÂY RETREAT · BẢNG ĐIỀU KHIỂN</p><h1>Không gian<br><em>quản lý.</em></h1><p class="admin-subtitle">Tổng quan hoạt động và thông tin đặt phòng của khu nghỉ dưỡng.</p></div><div class="customer-heading-actions"><a class="outline-button" href="/customers">Thông tin khách hàng ↗</a><button class="outline-button" id="back-to-site" type="button">← Trang đặt phòng</button><button class="outline-button" id="admin-logout" type="button">Đăng xuất</button></div></section>
+    <section class="admin-stats" aria-label="Tổng quan hoạt động">
+      <article class="stat-card"><span class="stat-label">ĐẶT PHÒNG ĐANG MỞ</span><strong id="stat-active">—</strong><span class="stat-foot">Đã xác nhận & đang lưu trú</span></article>
+      <article class="stat-card"><span class="stat-label">ĐANG LƯU TRÚ HÔM NAY</span><strong id="stat-staying">—</strong><span class="stat-foot">Khách ở tại khu nghỉ dưỡng</span></article>
+      <article class="stat-card"><span class="stat-label">CÔNG SUẤT PHÒNG HÔM NAY</span><strong><span id="stat-occupancy">—</span><small>%</small></strong><span class="stat-foot">Phòng đang được sử dụng</span></article>
+      <article class="stat-card accent-stat"><span class="stat-label">ĐÃ THU QUA CỔNG THẬT</span><strong id="stat-revenue">—</strong><span class="stat-foot">Không tính giao dịch demo</span></article>
+    </section>
+    <section class="bookings-panel">
+      <div class="bookings-heading"><div><span class="eyebrow"><span></span> LỄ TÂN</span><h2>Danh sách đặt phòng</h2></div><div class="admin-panel-actions"><button class="outline-button" id="create-booking-button" type="button">＋ Thêm đặt phòng</button><button class="outline-button" id="refresh-bookings" type="button">↻ <span>Làm mới</span></button></div></div>
+      <div class="booking-filters"><label class="filter-search"><span>⌕</span><input id="booking-search" type="search" placeholder="Tìm tên khách, email hoặc mã đặt phòng"></label><label class="filter-select"><span class="sr-only">Lọc theo trạng thái</span><select id="booking-filter"><option value="all">Tất cả trạng thái</option><option value="confirmed">Đã xác nhận</option><option value="checked_in">Đang lưu trú</option><option value="checked_out">Đã trả phòng</option><option value="cancelled">Đã hủy</option></select></label></div>
+      <div class="table-wrap"><table><thead><tr><th>KHÁCH HÀNG</th><th>PHÒNG</th><th>THỜI GIAN</th><th>KHÁCH</th><th>TỔNG TIỀN</th><th>THANH TOÁN</th><th>TRẠNG THÁI</th><th></th></tr></thead><tbody id="bookings-body"></tbody></table><div class="empty-state" id="bookings-empty" hidden><span>✳</span><strong>Chưa có đặt phòng nào</strong><p>Đặt phòng mới sẽ tự động xuất hiện ở đây.</p></div></div>
+      <div class="table-foot"><span id="booking-count">0 đặt phòng</span><span>Dữ liệu được lưu trên máy chủ của bạn</span></div>
+    </section>
+    <section class="inventory-panel">
+      <div class="bookings-heading"><div><span class="eyebrow"><span></span> SẢN PHẨM LƯU TRÚ</span><h2>Hạng phòng & tồn phòng</h2></div><button class="outline-button" id="create-room-button" type="button">＋ Thêm hạng phòng</button></div>
+      <div class="inventory-grid" id="inventory-grid"></div>
+    </section>
+    <div class="admin-bottom-note"><span>✳</span> Mây Retreat · Hệ thống quản lý nội bộ</div>
+  </main>
+
+  <dialog class="admin-editor-dialog" id="room-editor-dialog" aria-labelledby="room-editor-title">
+    <button class="dialog-close editor-close" data-close-dialog="room-editor-dialog" type="button" aria-label="Đóng">×</button>
+    <div class="admin-editor-content"><p class="eyebrow"><span></span> SẢN PHẨM LƯU TRÚ</p><h2 id="room-editor-title">Thêm hạng phòng</h2>
+      <form id="room-editor-form" class="admin-editor-form">
+        <input type="hidden" name="id">
+        <div class="form-row"><label>Tên hạng phòng<input name="name" required minlength="2" maxlength="80" placeholder="Phòng Garden"></label><label>Mã loại phòng<input name="type" required pattern="[a-zA-Z0-9_-]{2,30}" placeholder="garden"></label></div>
+        <div class="form-row"><label>Nhãn hiển thị<input name="label" required minlength="2" maxlength="48" placeholder="VƯỜN NHIỆT ĐỚI"></label><label>Loại giường<input name="beds" required maxlength="80" placeholder="1 giường đôi"></label></div>
+        <label>Mô tả<textarea name="description" rows="2" required minlength="8" maxlength="300" placeholder="Mô tả ngắn về hạng phòng"></textarea></label>
+        <div class="form-row"><label>Giá mỗi đêm (VND)<input name="price" type="number" min="100000" max="100000000" step="50000" required></label><label>Số lượng phòng<input name="totalRooms" type="number" min="1" max="500" step="1" required></label></div>
+        <div class="form-row"><label>Sức chứa<input name="capacity" type="number" min="1" max="30" step="1" required></label><label>Diện tích (m²)<input name="size" type="number" min="10" max="500" step="1" required></label></div>
+        <label>Đường dẫn ảnh (HTTPS)<input name="image" type="url" required placeholder="https://images.unsplash.com/..."></label>
+        <label class="featured-check"><input name="featured" type="checkbox"><span>Đánh dấu là phòng nổi bật</span></label>
+        <button class="primary-button" type="submit"><span id="room-editor-submit-label">Thêm hạng phòng</span><span>↗</span></button>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog class="admin-editor-dialog" id="booking-editor-dialog" aria-labelledby="booking-editor-title">
+    <button class="dialog-close editor-close" data-close-dialog="booking-editor-dialog" type="button" aria-label="Đóng">×</button>
+    <div class="admin-editor-content"><p class="eyebrow"><span></span> LỄ TÂN · ĐẶT PHÒNG</p><h2 id="booking-editor-title">Thêm đặt phòng</h2>
+      <form id="booking-editor-form" class="admin-editor-form">
+        <input type="hidden" name="id">
+        <div class="form-row"><label>Hạng phòng<select name="roomId" id="editor-booking-room" required></select></label><label>Số khách<input name="guests" type="number" min="1" max="30" step="1" required></label></div>
+        <div class="form-row"><label>Ngày nhận phòng<input name="checkIn" id="editor-checkin" type="date" required></label><label>Ngày trả phòng<input name="checkOut" id="editor-checkout" type="date" required></label></div>
+        <div class="form-row"><label>Họ và tên<input name="guestName" required minlength="2" maxlength="80"></label><label>Số điện thoại<input name="phone" type="tel" required minlength="8"></label></div>
+        <label>Email<input name="email" type="email" required maxlength="160"></label>
+        <label>Phương thức thanh toán<select name="paymentMethod"><option value="at_property">Thanh toán tại khách sạn</option><option value="online_demo">Thanh toán online · demo</option></select></label>
+        <label>Ghi chú<textarea name="note" rows="2" maxlength="500"></textarea></label>
+        <button class="primary-button" type="submit"><span id="booking-editor-submit-label">Tạo đặt phòng</span><span>↗</span></button>
+      </form>
+    </div>
+  </dialog>
+
+  <main id="customer-view" class="customer-view" hidden>
+    <section class="admin-heading customer-heading"><div><p class="eyebrow"><span></span> TÀI KHOẢN CỦA BẠN</p><h1>Xin chào,<br><em id="customer-name">bạn.</em></h1><p class="admin-subtitle">Những kỳ nghỉ đang chờ bạn bắt đầu.</p></div><div class="customer-heading-actions"><button class="outline-button" id="customer-back" type="button">← Trang đặt phòng</button><button class="outline-button" id="customer-logout" type="button">Đăng xuất</button></div></section>
+    <section class="customer-bookings"><div class="bookings-heading"><div><span class="eyebrow"><span></span> KỲ NGHỈ CỦA BẠN</span><h2>Đặt phòng của tôi</h2></div><button class="outline-button" id="customer-refresh" type="button">↻ <span>Làm mới</span></button></div>
+      <div class="payment-demo-notice"><span>i</span><p><strong>Thanh toán trực tuyến đang ở chế độ demo.</strong> Khi chọn mục này, hệ thống chỉ ghi nhận thao tác thử, không trừ tiền. Thanh toán thật cần cấu hình cổng như VNPay hoặc MoMo.</p></div>
+      <div id="my-bookings-list" class="my-bookings-list"></div>
+      <div class="empty-state customer-empty" id="my-bookings-empty" hidden><span>✳</span><strong>Bạn chưa có đặt phòng nào</strong><p>Chọn một căn phòng để bắt đầu kỳ nghỉ ở Mây.</p><button class="outline-button" id="customer-browse" type="button">Xem danh sách phòng ↗</button></div>
+    </section>
+  </main>
+
+  <dialog class="booking-dialog" id="booking-dialog" aria-labelledby="booking-title">
+    <button class="dialog-close" id="close-dialog" type="button" aria-label="Đóng">×</button>
+    <div class="dialog-image" id="dialog-image"></div>
+    <div class="dialog-content"><p class="eyebrow"><span></span> GIỮ CHỖ TẠI MÂY</p><h2 id="booking-title">Hẹn gặp bạn<br><em>ở đây nhé.</em></h2><p class="dialog-room-name" id="dialog-room-name"></p>
+      <form id="booking-form">
+        <input type="hidden" id="booking-room-id">
+        <div class="form-row"><label>Ngày nhận phòng<input id="booking-checkin" name="checkIn" type="date" required></label><label>Ngày trả phòng<input id="booking-checkout" name="checkOut" type="date" required></label></div>
+        <div class="form-row"><label>Số khách<select id="booking-guests" name="guests" required><option value="1">1 khách</option><option value="2" selected>2 khách</option><option value="3">3 khách</option><option value="4">4 khách</option></select></label><div class="booking-account-note" id="booking-account-note"></div></div>
+        <label class="full-label">Lời nhắn <span>(không bắt buộc)</span><textarea name="note" rows="2" placeholder="Điều gì sẽ giúp kỳ nghỉ của bạn trọn vẹn hơn?"></textarea></label>
+        <fieldset class="payment-methods"><legend>Phương thức thanh toán</legend><label class="payment-option"><input type="radio" name="paymentMethod" value="online_demo" checked><span><strong>Thanh toán trực tuyến · demo</strong><small>Ghi nhận thanh toán thử, không trừ tiền</small></span></label><label class="payment-option"><input type="radio" name="paymentMethod" value="at_property"><span><strong>Thanh toán tại khách sạn</strong><small>Thanh toán với lễ tân khi nhận phòng</small></span></label></fieldset>
+        <div class="booking-total"><span id="booking-price-note">Tổng tiền lưu trú</span><strong id="booking-total-price">—</strong></div>
+        <button class="primary-button booking-submit" type="submit"><span>Xác nhận đặt phòng</span><span>↗</span></button>
+        <p class="booking-hint">Bạn sẽ nhận được xác nhận sau khi hoàn tất thông tin.</p>
+      </form>
+    </div>
+  </dialog>
+  <dialog class="auth-dialog" id="auth-dialog" aria-labelledby="auth-title">
+    <button class="dialog-close auth-close" id="auth-close" type="button" aria-label="Đóng">×</button>
+    <div class="auth-dialog-content"><p class="eyebrow"><span></span> MÂY RETREAT</p><h2 id="auth-title">Rất vui được<br><em>gặp lại bạn.</em></h2><p class="auth-intro">Đăng nhập để đặt phòng và theo dõi kỳ nghỉ của bạn.</p>
+      <div class="auth-tabs"><button class="auth-tab active" data-auth-tab="login" type="button">Đăng nhập</button><button class="auth-tab" data-auth-tab="register" type="button">Tạo tài khoản</button></div>
+      <form id="login-form" class="auth-form"><label>Email<input name="email" type="email" autocomplete="email" required placeholder="ban@email.com"></label><label>Mật khẩu<input name="password" type="password" autocomplete="current-password" required minlength="10" placeholder="Ít nhất 10 ký tự"></label><p class="auth-error" hidden></p><button class="primary-button" type="submit"><span>Đăng nhập</span><span>↗</span></button><p class="auth-hint">Tài khoản nhân viên demo được ghi trong README.</p></form>
+      <form id="register-form" class="auth-form" hidden><label>Họ và tên<input name="name" autocomplete="name" required minlength="2" maxlength="80" placeholder="Nguyễn Minh Anh"></label><label>Email<input name="email" type="email" autocomplete="email" required placeholder="ban@email.com"></label><label>Số điện thoại<input name="phone" type="tel" autocomplete="tel" required minlength="8" placeholder="090 123 4567"></label><label>Mật khẩu<input name="password" type="password" autocomplete="new-password" required minlength="10" maxlength="128" placeholder="Từ 10 ký tự trở lên"></label><p class="auth-error" hidden></p><button class="primary-button" type="submit"><span>Tạo tài khoản</span><span>↗</span></button></form>
+    </div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true">✳</span><span class="brand-copy"><strong>MÂY</strong><small>RETREAT · HỘI AN</small></span></a><span>CHẬM LẠI MỘT CHÚT, BẠN ĐANG Ở MÂY.</span><a href="mailto:hello@mayretreat.vn">HELLO@MAYRETREAT.VN ↗</a></footer>
+</body>
+</html>

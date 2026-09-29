@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f0">
+  <meta name="description" content="Khám phá danh sách phòng nghỉ tại Mây Retreat Hội An.">
+  <title>Danh sách phòng — Mây Retreat Hội An</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/rooms.js" defer></script>
+</head>
+<body class="directory-body">
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Mây Retreat trang chủ"><span class="brand-mark" aria-hidden="true">✳</span><span class="brand-copy"><strong>MÂY</strong><small>RETREAT · HỘI AN</small></span></a>
+    <nav class="main-nav" aria-label="Điều hướng chính">
+      <a class="nav-link active" href="/rooms">Danh sách phòng</a>
+      <a class="nav-link" href="/#experience">Trải nghiệm</a>
+      <a class="nav-link" href="/#about">Về Mây</a>
+    </nav>
+    <a class="admin-trigger directory-account" href="/?auth=login"><span class="admin-trigger-dot"></span><span>Đăng nhập</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a>
+    <a class="directory-mobile-home" href="/" aria-label="Trang chủ">←</a>
+  </header>
+
+  <main>
+    <section class="directory-hero">
+      <div class="directory-hero-copy"><p class="eyebrow"><span></span> MÂY RETREAT · HỘI AN</p><h1>Tìm một căn phòng<br><em>hợp với bạn.</em></h1><p>Ba không gian riêng, một kỳ nghỉ chậm rãi. Chọn ngày và số khách để xem phòng phù hợp.</p></div>
+      <div class="directory-hero-mark" aria-hidden="true">MÂY<br><span>°</span></div>
+    </section>
+
+    <section class="directory-main">
+      <form class="directory-search" id="directory-form">
+        <label class="directory-search-field directory-query"><span>TÊN PHÒNG HOẶC TIỆN ÍCH</span><input id="directory-query" type="search" placeholder="Ví dụ: hướng biển, hồ bơi…" autocomplete="off"></label>
+        <label class="directory-search-field"><span>NHẬN PHÒNG</span><input id="directory-checkin" type="date" required></label>
+        <label class="directory-search-field"><span>TRẢ PHÒNG</span><input id="directory-checkout" type="date" required></label>
+        <label class="directory-search-field"><span>SỐ KHÁCH</span><select id="directory-guests"><option value="1">1 khách</option><option value="2" selected>2 khách</option><option value="3">3 khách</option><option value="4">4 khách</option></select></label>
+        <button class="directory-search-button" type="submit"><span>Tìm phòng</span><span>↗</span></button>
+      </form>
+
+      <div class="directory-toolbar"><div><span class="eyebrow"><span></span> KHÔNG GIAN NGHỈ DƯỠNG</span><h2>Tất cả phòng nghỉ</h2><p id="directory-count">Đang tải danh sách phòng…</p></div><label class="directory-sort"><span>SẮP XẾP</span><select id="directory-sort"><option value="featured">Gợi ý cho bạn</option><option value="price-asc">Giá thấp đến cao</option><option value="price-desc">Giá cao đến thấp</option></select></label></div>
+      <div class="directory-grid" id="directory-grid" aria-live="polite"></div>
+      <div class="directory-empty" id="directory-empty" hidden><span>✳</span><h3>Chưa tìm thấy phòng phù hợp.</h3><p>Thử một từ khóa hoặc khoảng ngày khác nhé.</p><button class="outline-button" id="directory-reset" type="button">Xóa bộ lọc</button></div>
+      <div class="directory-help"><span>✳</span><p>Cần tư vấn chọn phòng? <a href="mailto:hello@mayretreat.vn">Liên hệ Mây <span>↗</span></a></p></div>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand footer-brand" href="/"><span class="brand-mark" aria-hidden="true">✳</span><span class="brand-copy"><strong>MÂY</strong><small>RETREAT · HỘI AN</small></span></a><span>CHẬM LẠI MỘT CHÚT, BẠN ĐANG Ở MÂY.</span><a href="mailto:hello@mayretreat.vn">HELLO@MAYRETREAT.VN ↗</a></footer>
+</body>
+</html>

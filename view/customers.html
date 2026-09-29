@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f0">
+  <meta name="description" content="Tra cứu thông tin và lịch sử đặt phòng của khách hàng Mây Retreat.">
+  <title>Thông tin khách hàng — Mây Retreat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/customers.js" defer></script>
+</head>
+<body class="customers-body">
+  <header class="site-header">
+    <a class="brand" href="/?admin=1" aria-label="Mây Retreat quản lý"><span class="brand-mark" aria-hidden="true">✳</span><span class="brand-copy"><strong>MÂY</strong><small>RETREAT · HỘI AN</small></span></a>
+    <nav class="main-nav" aria-label="Điều hướng chính"><a class="nav-link" href="/?admin=1">Bảng điều khiển</a><a class="nav-link active" href="/customers">Khách hàng</a><a class="nav-link" href="/rooms">Danh sách phòng</a></nav>
+    <a class="admin-trigger" href="/?admin=1"><span class="admin-trigger-dot"></span><span>Quản lý</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a>
+  </header>
+  <main class="customers-page" id="customers-page">
+    <section class="customers-page-heading"><div><p class="eyebrow"><span></span> MÂY RETREAT · LỄ TÂN</p><h1>Hồ sơ<br><em>khách hàng.</em></h1><p>Theo dõi thông tin liên hệ và lịch sử lưu trú của khách tại Mây.</p></div><a class="outline-button" href="/?admin=1">← Bảng điều khiển</a></section>
+    <section class="customer-overview" aria-label="Tổng quan khách hàng"><article><span>TỔNG KHÁCH HÀNG</span><strong id="customer-total">—</strong></article><article><span>CÓ ĐẶT PHÒNG</span><strong id="customer-with-bookings">—</strong></article><article><span>ĐẶT PHÒNG ĐANG MỞ</span><strong id="customer-active-bookings">—</strong></article></section>
+    <section class="customer-directory-panel">
+      <div class="customers-list-heading"><div><span class="eyebrow"><span></span> DANH BẠ KHÁCH HÀNG</span><h2>Danh sách khách</h2><p id="customer-result-count">Đang tải danh sách…</p></div><button class="outline-button" id="customers-refresh" type="button">↻ Làm mới</button></div>
+      <label class="customers-search"><span>⌕</span><input id="customers-query" type="search" placeholder="Tìm theo tên, email hoặc số điện thoại" autocomplete="off"></label>
+      <div class="customer-table-wrap"><table><thead><tr><th>KHÁCH HÀNG</th><th>LIÊN HỆ</th><th>THAM GIA</th><th>ĐẶT PHÒNG</th><th>ĐANG MỞ</th><th>GIÁ TRỊ ĐẶT PHÒNG</th><th></th></tr></thead><tbody id="customers-body"></tbody></table><div class="empty-state" id="customers-empty" hidden><span>✳</span><strong>Chưa có khách hàng phù hợp</strong><p>Tài khoản khách hàng mới đăng ký sẽ xuất hiện tại đây.</p></div></div>
+      <div class="customers-list-foot"><span>Chỉ nhân viên quản lý mới xem được thông tin này.</span><span id="customers-updated"></span></div>
+    </section>
+  </main>
+  <main class="customers-access-denied" id="customers-denied" hidden><span>✳</span><h1>Trang dành cho<br><em>nhân viên Mây.</em></h1><p>Bạn cần đăng nhập bằng tài khoản quản trị để xem danh bạ khách hàng.</p><a class="primary-button" href="/?auth=login&return=%2Fcustomers"><span>Đăng nhập quản trị</span><span>↗</span></a><a class="text-link" href="/">Về trang đặt phòng <span>↗</span></a></main>
+
+  <dialog class="customer-detail-dialog" id="customer-detail-dialog" aria-labelledby="detail-name">
+    <button class="dialog-close customer-dialog-close" id="customer-detail-close" type="button" aria-label="Đóng">×</button>
+    <div class="customer-detail-top"><span class="eyebrow"><span></span> THÔNG TIN KHÁCH HÀNG</span><h2 id="detail-name">—</h2><p id="detail-id">—</p><div class="customer-detail-contact"><a id="detail-email" href="#">—</a><a id="detail-phone" href="#">—</a></div></div>
+    <section class="customer-detail-bookings"><div class="detail-booking-heading"><div><span class="eyebrow"><span></span> LỊCH SỬ LƯU TRÚ</span><h3>Đặt phòng</h3></div><span id="detail-booking-count">0 lần</span></div><div class="detail-booking-list" id="detail-booking-list"></div><div class="detail-no-bookings" id="detail-no-bookings" hidden>Khách hàng chưa có đặt phòng nào.</div></section>
+  </dialog>
+  <footer class="site-footer"><a class="brand footer-brand" href="/?admin=1"><span class="brand-mark" aria-hidden="true">✳</span><span class="brand-copy"><strong>MÂY</strong><small>RETREAT · HỘI AN</small></span></a><span>THÔNG TIN KHÁCH HÀNG · NỘI BỘ</span><a href="mailto:hello@mayretreat.vn">HELLO@MAYRETREAT.VN ↗</a></footer>
+</body>
+</html>
